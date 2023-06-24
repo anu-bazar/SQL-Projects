@@ -1,3 +1,11 @@
+/*
+It creates three tables: Securities, Portfolio, and Holdings. These tables are used to store information about securities, portfolios, and the holdings of securities within portfolios.
+The first query calculates the portfolio returns by joining the Portfolio, Holdings, Securities, and SecurityPrices tables. It calculates the total investment, current value, and return percentage for each portfolio based on the holdings and current security prices.
+The second query calculates the portfolio volatility. It calculates the standard deviation of the portfolio values for each portfolio by joining the Portfolio, Holdings, and Securities tables and utilizing a subquery to get the mean portfolio value.
+The third query calculates the Sharpe ratio for each portfolio. It combines the previous calculations and uses the formula (portfolio returns - risk-free rate) / volatility to calculate the Sharpe ratio.
+The stored procedure AddTransaction is created to handle adding transactions to the portfolio. It takes input parameters such as portfolio ID, security ID, quantity, purchase date, purchase price, and transaction type ('buy' or 'sell'). Based on the transaction type, it either inserts a new holding into the Holdings table or updates the quantity of an existing holding.
+*/
+
 -- Create tables
 CREATE TABLE Securities (
     SecurityID INT PRIMARY KEY,
